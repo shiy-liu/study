@@ -1,0 +1,21 @@
+{
+  "name": "testwebcrawler",
+  "version": "1.0.0",
+  "description": "crawler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aaron.liu",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "iconv-lite": "^0.4.24",
+    "nightmare": "^3.0.1",
+    "superagent": "^4.1.0"
+  },
+  "devDependencies": {
+    "excel-as-json": "^2.0.2"
+  }
+}
