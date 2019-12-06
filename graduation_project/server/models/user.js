@@ -1,0 +1,28 @@
+let mongoose = require('mongoose')
+
+let usr = new mongoose.Schema({
+    "userId": String,
+    "userName": String,
+    "userPwd": String,
+    "email":String,
+    "createDate":String,
+    "orderList": Array,
+    "cartList": [{
+        "productId": String,
+        "productName": String,
+        "salePrice": Number,
+        "productImage": String,
+        "checked": String,
+        "productNum": String
+    }],
+    "addressList": [{
+        "addressId": String,
+        "userName": String,
+        "streetName": String,
+        "postCode": Number,
+        "tel": Number,
+        "isDefault": Boolean
+    }]
+})
+
+module.exports = mongoose.model('User', usr)
