@@ -14,7 +14,6 @@ var recruitmentsRouter = require('./routes/recruitment');
 var technologysRouter = require('./routes/technology');
 var servicesRouter = require('./routes/service');
 var adminsRouter = require('./routes/admin');
-var wxUserRouter = require('./routes/wxUsers');
 var app = express();
 
 // view engine setup
@@ -41,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     }
 // });
 app.use('/', indexRouter);
-app.use('/users', usersRouter,adminsRouter,wxUserRouter);
+app.use('/users', usersRouter,adminsRouter);
 app.use('/goods', goodsRouter);
 app.use('/comments', commentsRouter);
 app.use('/companys', homesRouter,aboutsRouter);
