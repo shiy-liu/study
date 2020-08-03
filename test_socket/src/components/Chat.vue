@@ -2,7 +2,7 @@
   <div class="card mt-3">
       <div class="card-body">
           <div class="card-title">
-              <h3>激情聊天室</h3>
+              <h3>聊天室</h3>
               <hr>
           </div>
           <div class="card-body">
