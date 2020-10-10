@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="E:/new/"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/WdatePicker.js"></script>
+    <title>my97DatePicker插件</title>
+    <style>
+        body {
+            padding: 50px;
+            background: linear-gradient(to bottom, rgba(12, 11, 11, 1), rgba(5, 0, 2, .5)) no-repeat;
+            color: #0EA4DF;
+        }
+        
+        .cont {
+            width: 500px;
+            margin: 10px auto;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ex1">
+                                            <span class="sr-only">切换导航</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">My97DatePicker插件</a></div>
+            <div class="collapse navbar-collapse" id="ex1">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">首页</a></li>
+                    <li class="active"><a href="javascript:;">使用实例</a></li>
+                    <li><a href="http://www.my97.net/demo/index.htm" target="_blank">在线帮助文档</a></li>
+                    <li><a href="javascript:;">下载插件</a></li>
+                    <li><a href="./download.html">下载专区</a></li>
+                    <li class=" navbar-right"> <a href="http://www.cnblogs.com/liuguofu/"><span class="glyphicon glyphicon-user"></span>我的博客</a></li>
+                </ul>
+
+
+
+            </div>
+        </div>
+    </nav>
+    <p class="text-center text-danger">————每个优秀的人都有一段沉默的时光</p>
+    <div class="cont">
+        <h3>模拟火车票购买日期选择问题：</h3>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group-lg">
+                    <input type="text" class="form-control Wdate" id="txtDate1">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group-lg">
+                    <input type="text" class="form-control Wdate" id="txtDate2">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function() {
+        $("#txtDate1").focus(function() {
+            WdatePicker({
+                el: this,
+                minDate: "%y-%M-%d",
+                maxDate: "%y-%M-{%d+3}",
+                onpicking: function(dp) {
+                    var oldDate = dp.cal.getDateStr();
+                    var newDate = dp.cal.getNewDateStr();
+                    if (oldDate != newDate) {
+                        var ret = confirm("是否用" + newDate + "取代" + oldDate);
+                        if (ret) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                },
+                onpicked: function() {
+                    $("#txtDate2").focus();
+                }
+
+            });
+        })
+        $("#txtDate2").focus(function() {
+            WdatePicker({
+                el: this,
+                minDate: "#F{$dp.$D('txtDate1')}",
+                maxDate: "%y-%M-{%d+10}"
+
+            });
+        })
+    })
+</script>
+
+</html>

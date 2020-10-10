@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- <base href="E:/new/"> -->
+    <title>表单验证插件</title>
+    <link rel="stylesheet" href="../css/validate/style.css" />
+    <script src="../js/validate/theme.js"></script>
+    <script src="../js/validate/jquery-1.4.4.min.js"></script>
+    <script src="../js/validate/formValidator-4.1.3.js"></script>
+    <script src="../js/validate/formValidatorRegex.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, rgba(12, 11, 11, 1), rgba(5, 0, 2, .5));
+            color: #0EA4DF;
+            padding: 50px;
+        }
+        
+        h1 {
+            color: #DA043A;
+            font-size: 18px;
+        }
+        
+        .cont {
+            width: 500px;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        $(function() {
+            $.formValidator.initConfig();
+            $("#user").formValidator({
+                onEmpty: "用户名不能为空",
+                onShow: "输入5-10位字符",
+                onFocus: "字母数字下划线",
+                onCorrect: "恭喜用户名可用"
+            }).inputValidator({
+                min: 5,
+                max: 10,
+                onError: "用户名称5-10位"
+            })
+            $("#psd").formValidator({
+                onShow: "请输入密码",
+                onFocus: "尽量包含字母数字特殊字符",
+
+
+            }).inputValidator({
+                min: 1,
+                onError: "密码不能为空"
+            })
+
+            $("#cpsd").formValidator({
+                onShow: "请再次输入密码",
+                onFocus: "注意字母大小写"
+            }).compareValidator({
+                desID: "psd",
+                operateor: "=",
+                onError: "输入的密码不一致"
+            })
+            $("#idCard").formValidator({
+                onShow: "请输入正确的身份证号码",
+                onFocus: "请输入18位的身份证号码",
+                onError: "输入的不规范"
+            }).functionValidator({
+                fun: isCardID
+            })
+            $("#phone").formValidator({
+                onShow: "请输入正确的手机号",
+                onFocus: "请输入11位手机号码",
+                onError: "输入的不规范"
+            }).inputValidator({
+                min: 11,
+                max: 11,
+                onError: "必须是11位数字"
+            }).regexValidator({
+                regExp: 'mobile',
+                dataType: 'enum',
+                onError: "你输入的手机号格式不正确"
+            })
+            $("#email").formValidator({
+                onShow: "请输入正确的邮箱地址",
+                onError: "输入的不规范"
+            }).regexValidator({
+                regExp: 'email',
+                dataType: 'enum',
+                onError: "你输入的邮箱地址格式不正确"
+            })
+            $("#intrd").formValidator({}).inputValidator({
+                min: 20,
+                onError: "请至少输入10个汉字或者20个字符！"
+            })
+            $(":radio[name=xb]").formValidator({
+                    tipID: "radio1",
+                    onShow: "一定要选哦",
+                    onFocus: "认真选",
+                    onCorrect: "谢谢"
+                        // defaultValue: ["1"]
+                }).inputValidator({
+                    min: 1,
+                    max: 1,
+                    onError: "难道你不爱国？你给我选！！！"
+                })
+                //inputValidator函数 对输入值进行验证
+
+            //compareValidator函数 控件之间值的比较
+            //表单验证事件
+            $("#form1").submit(function() {
+                return $.formValidator.pageIsValid()
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ex1">
+                            <span class="sr-only">切换导航</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+            <div class="navbar-header">
+                <a href="javascript:;" class="navbar-brand">formValidator插件</a></div>
+            <div class="collapse navbar-collapse" id="ex1">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">首页</a></li>
+                    <li class="active"><a href="javascript:;">使用实例</a></li>
+                    <li><a href="javascript:;">帮助文档</a></li>
+                    <li><a href="javascript:;">下载插件</a></li>
+                    <li><a href="./download.html">下载专区</a></li>
+                    <li class=" navbar-right"> <a href="http://www.cnblogs.com/liuguofu/"><span class="glyphicon glyphicon-user"></span>我的博客</a></li>
+                </ul>
+
+
+
+            </div>
+        </div>
+    </nav>
+    <p class="text-center text-danger">————验证所有东西的最好方式是时间</p>
+    <div class="cont">
+
+        <form action="E:SUMMERHOLIDAY/html/Day7.html" role="form" id="form1">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="用户名" id="user">
+                <span id="userTip"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="输入密码" id="psd">
+                <span id="psdTip"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="确认密码" id="cpsd">
+                <span id="cpsdTip"></span>
+            </div>
+            <p>性别：</p>
+            <div class="radio-inline">
+                <input type="radio" id="nan" name="xb">男
+            </div>
+            <div class="radio-inline">
+                <input type="radio" id="nv" name="xb">女
+            </div>
+            <div id="radio1"></div>
+            <hr class="divider">
+            <p>爱好：</p>
+            <div class="checkbox-inline">
+                <input type="checkbox" id="ah1">游泳
+            </div>
+            <div class="checkbox-inline">
+                <input type="checkbox" id="ah2">健身
+            </div>
+            <div class="checkbox-inline">
+                <input type="checkbox" id="ah3">跑步
+            </div>
+            <div class="checkbox-inline">
+                <input type="checkbox" id="ah4">台球
+            </div>
+            <div id="checkbox1"></div>
+            <p> 喜欢的浏览器：</p>
+            <div class="form-group">
+                <select name="" id="web" class="form-control">
+					<option value="0">---请选择---</option>
+					<option value="1">IE</option>
+					<option value="2">Opera</option>
+					<option value="3">谷歌</option>
+					<option value="4">火狐</option>
+				</select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="身份证号" id="idCard">
+                <span id="idCardTip"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="邮箱地址" id="email">
+                <span id="emailTip"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="手机号" id="phone">
+                <span id="phoneTip"></span>
+            </div>
+            <div class="form-group">
+                <textarea name="" id="intrd" cols="30" rows="10" class="form-control" placeholder="自我介绍"></textarea>
+                <span id="intrdTip"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" name=" " id=" " class="btn btn-info ">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

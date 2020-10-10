@@ -1,0 +1,236 @@
+@charset "utf-8";
+* {
+    padding: 0%;
+    margin: 0%;
+    font-size: 14px;
+    color: #fff;
+    list-style-type:none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.cl {
+    clear: both;
+}
+
+body {
+    background: linear-gradient(#0160AC, #fff) no-repeat;
+    height: 500px;
+}
+
+#search {
+    width: 100%;
+    height: 50px;
+}
+
+#search .logo {
+    width: 180px;
+    height: 38px;
+    background: url('../images/logo.png');
+    margin: 55px 38px 67px 136px;
+    float: left;
+}
+
+#search .search-input {
+    float: left;
+    width: 670px;
+    height: 46px;
+    margin-top: 55px;
+    position: relative;
+}
+
+#search .search-input>input {
+    width: 533px;
+    height: 46px;
+    border: 1px solid #ddd;
+    border-radius: 6px 0 0 6px;
+    padding-left: 10px;
+    color: #000;
+}
+
+#search .search-input .search-btn {
+    background-color: #0088FF;
+    display: inline-block;
+    width: 60px;
+    height: 8px;
+    font-size: 16px;
+    padding: 20px;
+    padding-left: 40px;
+    line-height: 6px;
+    border-radius: 0 6px 6px 0;
+    margin-left: -5px;
+}
+
+#search .search-input .search-change {
+    position: absolute;
+    top: 30%;
+    left: 74%;
+}
+
+#search .search-input .search-change>span {
+    color: #222;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#search-change-dropdown {
+    background-color: #fff;
+    width: 100px;
+    height: 116px;
+    position: absolute;
+    top: 240%;
+    left: -100%;
+    border-radius: 5px;
+    box-shadow: 0px 2px #ccc;
+    cursor: pointer;
+    display: none;
+}
+
+#search .search-input .search-change ul li {
+    color: #222;
+    font-size: 12px;
+    margin: 5px 8px 5px 30px;
+}
+
+.search-input .search-change>b {
+    display: inline-block;
+    border: 5px solid #ccc;
+    border-color: #ccc transparent transparent transparent;
+    border-width: 5px 5px 2px 5px;
+    cursor: pointer;
+}
+
+.weather {
+    width: 120px;
+    height: 46px;
+    float: left;
+    margin: 55px 55px;
+}
+
+.weather p {
+    vertical-align: bottom;
+    float: left;
+    width: 60px;
+    margin-top: 7px;
+}
+
+.weather p:nth-child(2) span {
+    font-size: 12px;
+}
+
+.weather p:nth-child(1) {
+    vertical-align: middle;
+}
+
+#nav .commend {
+    background: rgba(0, 0, 0, 0.1);
+    background-blend-mode: overlay;
+    height: 20px;
+    width: 1100px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#nav .commend li {
+    float: left;
+    margin-left: 30px;
+}
+
+#nav .commend .qw {
+    border-right: 1px solid #ddd;
+    padding-right: 15px;
+}
+
+#nav .commend li a:hover {
+    color: #ccc;
+}
+
+#content {
+    width: 1110px;
+    margin: 10px auto;
+    height: auto;
+}
+
+#content-left {
+    width: 750px;
+    height: 800px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 1);
+    background-blend-mode: overlay;
+    float: left;
+    margin-right: 10px;
+}
+
+#content-right {
+    width: 350px;
+    height: 1000px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 1);
+    background-blend-mode: overlay;
+    float: left;
+}
+
+#content-right .content-right-cont,
+#content-right .content-right-paihang {
+    width: 330px;
+    height: 120px;
+    border-bottom: 1px solid #ddd;
+    margin: 10 auto;
+}
+
+#content-right .content-right-cont .a {
+    color: #000;
+    float: left;
+    margin: 10px 20px;
+    width: 10px;
+}
+
+#content-right .content-right-cont ul {
+    float: left;
+    width: 270px;
+    margin-left: 10px;
+}
+
+#content-right .content-right-cont ul li {
+    color: #000;
+    float: left;
+    width: 80px;
+    margin: 10px 5px;
+}
+
+#content-right .content-right-paihang .paihang .no {
+    color: #0088FF;
+    margin: 10px 10px;
+}
+
+#content-right .content-right-paihang .weibo .no1,
+#content-right .content-right-paihang .resou .no1 {
+    color: #FEA006;
+    margin: 10px 10px;
+}
+
+#content-right .content-right-paihang h3 {
+    color: #0088FF;
+    margin: 20px 20px;
+}
+
+#content-right .content-right-paihang .paihang li {
+    margin: 10px 20px;
+}
+
+#content-right .content-right-paihang .paihang a {
+    color: #666;
+    overflow: hidden;
+}
+
+#content-right .content-right-paihang .paihang b {
+    float: right;
+    color: #aaa;
+    font-weight: normal;
+}
+
+#content-right .content-right-paihang {
+    height: 340px;
+}
