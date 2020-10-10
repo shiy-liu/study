@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <base href="E:/SUMMERHOLIDAY/"> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../images/sy.jpg">
+    <!-- <link rel="stylesheet" href="../css/sdmz.css"> -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/sdmz.js"></script>
+    <title>经典四大名著</title>
+    <style>
+        .cont {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+        
+        #myCarousel {
+            height:600px;
+        }
+        
+        #myCarousel .item {
+            height: 600px;
+        }
+        
+        #myCarousel img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ex1">
+                            <span class="sr-only">切换导航</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">经典四大名著</a></div>
+            <div class="collapse navbar-collapse" id="ex1">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">首页</a></li>
+                    <li class="active"><a href="#">综述</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">特点
+                            <b class="caret"></b>
+                    </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.w3school.com.cn/">西游记</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="http://www.runoob.com/">水浒传</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="https://www.imooc.com/">三国演义</a>
+                            </li>
+                            <li>
+                                <a href="https://www.imooc.com/">红楼梦</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li id="aboutme"><a href="javascript:;">关于我</a></li>
+
+                </ul>
+
+                <a href="http://www.cnblogs.com/liuguofu/" class="navbar-text navbar-right"><span class="glyphicon glyphicon-user"></span>我的博客</a>
+
+            </div>
+        </div>
+    </nav>
+    <div class="cont">
+        <div id="myCarousel" class="carousel slide">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="../images/shuihuzhuan.jpg" alt="First slide">
+                    <div class="carousel-caption">
+                        <h1>水浒传</h1>
+                        <p>水浒传108将个个都有个性我最喜欢林冲</p>
+                        <button class="btn btn-primary btn-lg">点击观看</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../images/sanguoyanyi.jpg" alt="Second slide">
+                    <div class="carousel-caption">
+                        <h1>三国演义</h1>
+                        <p>三国演义刘备关羽张飞三兄弟的兄弟情为世人歌颂</p>
+                        <button class="btn btn-primary btn-lg">点击观看</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../images/xiyouji.jpg" alt="Third slide">
+                    <div class="carousel-caption">
+                        <h1>西游记</h1>
+                        <p>西游记谁都爱看，难道你不爱孙悟空么？</p>
+                        <button class="btn btn-primary btn-lg">点击观看</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../images/hongloumeng.jpg" alt="Third slide">
+                    <div class="carousel-caption">
+                        <h1>红楼梦</h1>
+                        <p>林黛玉贾宝玉薛宝钗三角恋？</p>
+                        <button class="btn btn-primary btn-lg">点击观看</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="myModalLabel">关于</h3>
+                    </div>
+                    <div class="modal-body">一个热爱前端的小白<br>不想当高级工程师的程序员不是好学生</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal -->
+        </div>
+    </div>
+</body>
+
+</html>

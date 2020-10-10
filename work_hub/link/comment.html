@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>给我留言</title>
+    <style>
+        body {
+            background: url('../images/qiangti.jpg') repeat;
+            font-size: 12px;
+        }
+        
+        .cont {
+            width: 900px;
+            height: 700px;
+            background: url(../images/content.jpg) no-repeat;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .tip {
+            width: 227px;
+            height: 241px;
+            position: absolute;
+        }
+        
+        .tit {
+            width: 227px;
+            height: 63px;
+            background-color: royalblue;
+            float: left;
+            padding: 5px;
+            background: url(../images/yetou.jpg);
+        }
+        
+        .sm_cont {
+            clear: both;
+            width: 227px;
+            height: 100px;
+            background-color: #eee;
+            padding: 20px;
+        }
+        
+        .footer {
+            width: 227px;
+            height: 73px;
+            background-color: gold;
+            background: url(../images/yejiao.jpg);
+        }
+        
+        .close1 {
+            width: 17px;
+            height: 10px;
+            font-size: 16px;
+            color: red;
+            position: absolute;
+            top: 0%;
+            right: 0%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+				点我留言
+			  </button>
+    <div class="cont" id="cont"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">说点什么吧</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea style="width:100%;height:200px" id="liuyan"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="fun1()">发表</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    var messages = [{
+        "id": 1,
+        "name": "mahu",
+        "content": "今天你拿苹果支付了么",
+        "time": "2016-02-17 00:00:00"
+    }, {
+        "id": 2,
+        "name": "haha",
+        "content": "今天天气不错，风和日丽的",
+        "time": "2016-02-18 12:40:00"
+    }, {
+        "id": 3,
+        "name": "jjjj",
+        "content": "常要说的事儿是乐生于苦",
+        "time": "2016-03-18 12:40:00"
+    }, {
+        "id": 4,
+        "name": "9.8的妹纸",
+        "content": "把朋友家厕所拉堵了 不敢出去 掏了半小时了都",
+        "time": "2016-03-18 12:40:00"
+    }, {
+        "id": 5,
+        "name": "雷锋ii.",
+        "content": "元宵节快乐",
+        "time": "2016-02-22 12:40:00"
+    }, {
+        "id": 6,
+        "name": "哎呦哥哥.",
+        "content": "据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。",
+        "time": "2016-02-22 01:30:00"
+    }, {
+        "id": 7,
+        "name": "没猴哥，不春晚",
+        "content": "班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？",
+        "time": "2016-02-22 01:30:00"
+    }, {
+        "id": 8,
+        "name": "哎呦杰杰.",
+        "content": "真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，",
+        "time": "2016-02-22 01:30:00"
+    }, {
+        "id": 9,
+        "name": "哎呦哎呦",
+        "content": "今天哪里的烟花最好看！！？答：朋友圈。。。",
+        "time": "2016-02-22 02:30:00"
+    }];
+
+    function fun2() {
+        var cont = document.getElementById("cont");
+        cont.innerHTML = "";
+        for (var i = 0; i < messages.length; i++) {
+            var divObj = document.createElement("div");
+            cont.appendChild(divObj);
+            divObj.className = "tip";
+            divObj.innerHTML = "<div class='tit'>第[" + (i + 1) + "]条" + messages[i].time + "</div>\
+        <div class='close1'>X</div>\
+        <div class='sm_cont'>" + messages[i].content + "</div>\<div class='footer'>" + messages[i].name + "</div>\
+        ";
+            divObj.style.left = parseInt(Math.random() * 600) + "px";
+            divObj.style.top = parseInt(Math.random() * 500) + "px";
+
+        }
+        var zIndex = 0;
+        var tips = document.getElementsByClassName("tip");
+        for (var i = 0; i < tips.length; i++) {
+            tips[i].onclick = function() {
+                zIndex++;
+                this.style.zIndex = zIndex;
+            }
+        }
+    }
+    window.onload = fun2();
+
+    function fun1() {
+        var say = $("#liuyan").val()
+        var o = {
+            "id": 11,
+            "name": "刘国富",
+            "content": say,
+            "time": new Date().toDateString()
+        }
+        messages.push(o)
+        console.log($("#cont").html())
+        fun2()
+        console.log($("#cont").html())
+        $(".modal").css("display", "none")
+        $(".modal-backdrop").css("display", "none")
+    }
+</script>
+
+</html>
